@@ -13,8 +13,7 @@
         "dataTables.bootstrap.css", "select2.min.css"
     ]) ?>
      <!-- CSS App -->
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/themes/flat-blue.css">
+    <?= $this->Html->css(["style.css", "flat-blue.css"]) ?>
 </head>
 
 <body class="flat-blue">
@@ -438,10 +437,7 @@
         </footer>
         <div>
             <!-- Javascript Libs -->
-            <script type="text/javascript" src="../lib/js/jquery.min.js"></script>
-            <script type="text/javascript" src="../lib/js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="../lib/js/Chart.min.js"></script>
-            <script type="text/javascript" src="../lib/js/bootstrap-switch.min.js"></script>
+            <?= $this->Html->script(["jquery.min.js", "bootstrap.min.js", "Chart.min.js", "bootstrap-switch.min.js"]) ?>
             <script type="text/javascript" src="../lib/js/jquery.matchHeight-min.js"></script>
             <script type="text/javascript" src="../lib/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" src="../lib/js/dataTables.bootstrap.min.js"></script>
