@@ -1,0 +1,13 @@
+{
+    "option": {
+        "title": "primera opcion",
+        "url": "controller/action",
+        "type": "button, reset, submit, link, postLink, postButton",
+        "class": "",
+        "target": "",
+        "confirm": "estas seguro"
+    }
+}
+
+- a quien esta asignado un equipo de computo
+- tener en cuenta tipo de incidencia: software

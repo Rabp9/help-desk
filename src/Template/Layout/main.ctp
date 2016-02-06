@@ -245,7 +245,7 @@
             </div>
             <!-- Main Content -->
             <div class="container-fluid">
-                aqui van 2 tipos de bodys uno con padding y otro sin padding
+                <?= $this->fetch("content"); ?>
             </div>
         </div>
         <footer class="app-footer">
