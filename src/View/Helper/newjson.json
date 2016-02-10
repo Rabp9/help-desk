@@ -2,10 +2,15 @@
     "option": {
         "title": "primera opcion",
         "url": "controller/action",
-        "type": "button, reset, submit, link, postLink, postButton",
+        "type": "button, reset, submit, link, postLink, postButton, modal",
         "class": "",
         "target": "",
-        "confirm": "estas seguro"
+        "confirmMessage": "estas seguro",
+        "data-target": "#id_de_html_entity",
+        "metadata": {
+            "data-id": "dasdasd",
+            "data-algo": "dasdsada"
+        }
     }
 }
 

@@ -4,6 +4,73 @@ $this->extend('/Common/list');
 $this->assign("title", "Lista de Equipos de Cómputo");
 $this->assign("descripcion", "En la siguiente tabla se muestra la lista de Equipos de Cómputo");
 ?>
+
+<?php echo $this->Bootstrap->options(
+    [
+        [
+            "title" => "boton1", 
+            "url" => "sdadsa/dasds",
+            "type" => "button"
+        ]
+    ]
+) ?>
+<?php echo $this->Bootstrap->options(
+    [
+        [
+            "title" => "postLink1", 
+            "url" => "sdadsa/dasds",
+            "type" => "postLink",
+            "confirmMessage" => "dsada"
+        ]
+    ]
+) ?>
+<?php echo $this->Bootstrap->options([[
+    "title" => "modal1", 
+    "type" => "modal",
+    "data-target" => "#id_de_algo",
+    "metadata" => [
+        "data-id" => "dasda",
+        "data-mono" => "tu"
+    ]
+]]) ?>
+
+<?php 
+    echo $this->Bootstrap->options([
+        [
+            "title" => "boton1", 
+            "url" => "sdadsa/dasds",
+            "type" => "button"
+        ],
+        [
+            "title" => "postLink1", 
+            "url" => "sdadsa/dasds",
+            "type" => "postLink",
+            "confirmMessage" => "dsada"
+        ], 
+        [
+            "title" => "modal1", 
+            "type" => "modal",
+            "data-target" => "#id_de_algo",
+            "metadata" => [
+                "data-id" => "dasda",
+                "data-mono" => "tu"
+            ]
+        ],
+        [
+            "type" => "divider"
+        ],
+        [
+            "title" => "modal1", 
+            "type" => "modal",
+            "data-target" => "#id_de_algo",
+            "metadata" => [
+                "data-id" => "dasda",
+                "data-mono" => "tu"
+            ]
+        ]
+    ]);
+?>
+
 <div class="card">
     <div class="card-header">
         <div class="card-title">
