@@ -2,6 +2,7 @@
 <?php
 $this->extend('/Common/list');
 $this->assign("title", "Lista de Equipos de Cómputo");
+$this->assign("module-name", "Gestión");
 $this->assign("descripcion", "En la siguiente tabla se muestra la lista de Equipos de Cómputo");
 ?>
 
