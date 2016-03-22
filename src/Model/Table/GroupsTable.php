@@ -1,17 +1,18 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Usuario;
+use App\Model\Entity\Group;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Usuarios Model
+ * Groups Model
  *
+ * @property \Cake\ORM\Association\HasMany $Users
  */
-class UsuariosTable extends Table
+class GroupsTable extends Table
 {
 
     /**
@@ -24,9 +25,13 @@ class UsuariosTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('usuarios');
+        $this->table('groups');
         $this->displayField('id');
         $this->primaryKey('id');
+
+        $this->hasMany('Users', [
+            'foreignKey' => 'group_id'
+        ]);
     }
 
     /**
@@ -42,23 +47,11 @@ class UsuariosTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('nombres', 'create')
-            ->notEmpty('nombres');
+            ->allowEmpty('descripcion');
 
         $validator
-            ->requirePresence('apellido_paterno', 'create')
-            ->notEmpty('apellido_paterno');
-
-        $validator
-            ->requirePresence('apellido_materno', 'create')
-            ->notEmpty('apellido_materno');
-
-        $validator
-            ->date('fecha_nac')
-            ->allowEmpty('fecha_nac');
-
-        $validator
-            ->allowEmpty('estado');
+            ->requirePresence('estado', 'create')
+            ->notEmpty('estado');
 
         return $validator;
     }

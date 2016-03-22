@@ -3,17 +3,19 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $usuario->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $usuario->id)]
+                ['action' => 'delete', $persona->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $persona->id)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('List Usuarios'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Personas'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="usuarios form large-9 medium-8 columns content">
-    <?= $this->Form->create($usuario) ?>
+<div class="personas form large-9 medium-8 columns content">
+    <?= $this->Form->create($persona) ?>
     <fieldset>
-        <legend><?= __('Edit Usuario') ?></legend>
+        <legend><?= __('Edit Persona') ?></legend>
         <?php
             echo $this->Form->input('nombres');
             echo $this->Form->input('apellido_paterno');
