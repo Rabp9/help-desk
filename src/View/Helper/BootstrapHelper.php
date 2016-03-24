@@ -27,6 +27,9 @@ class BootstrapHelper extends Helper
                     case "modal":
                         return $this->__modal($option);
                         break;
+                    case "link":
+                        return $this->__link($option);
+                        break;
                 }
             } else {
                 $resultado = '<div class="btn-group">
@@ -48,6 +51,9 @@ class BootstrapHelper extends Helper
                         case "modal":
                             $resultado .= $this->__wrapperLi($this->__modal($option));
                             break;
+                        case "link":
+                            $resultado .= $this->__wrapperLi($this->__link($option));
+                            break;
                     }
                 }
                 return $resultado . "</ul></div>";
@@ -56,17 +62,18 @@ class BootstrapHelper extends Helper
     }
     
     private function __normal($option) {
-        return $this->Form->button($option["title"], 
-            ['type' => $option["type"], 
-            "class" => @$option["class"]]
-        );
+        return $this->Form->button($option["title"], [
+            'type' => $option["type"], 
+            "class" => @$option["class"]
+        ]);
     }
     
     private function __postLink($option) {
-        return $this->Form->postLink($option["title"], 
-            $option["url"],
-            array("confirm" => @$option["confirmMessage"], "escape" => false)
-        );
+        return $this->Form->postLink($option["title"], $option["url"], [
+            "confirm" => @$option["confirmMessage"], 
+            "escape" => false,
+            "class" => @$option["class"]
+        ]);
     }
     
     private function __modal($option) {
@@ -78,7 +85,83 @@ class BootstrapHelper extends Helper
         return $this->Html->link($option["title"], "#", @array_merge(@$option["metadata"], @$atributos));
     }
     
+    private function __link($option) {
+        return $this->Html->link($option["title"], $option["url"], [
+            "escape" => false,
+            "class" => @$option["class"]
+        ]);
+    }
+    
     private function __wrapperLi($content) {
         return "<li>" . $content . "</li>";
     }
 }
+/*
+ * 
+<?php echo $this->Bootstrap->options(
+    [
+        [
+            "title" => "boton1", 
+            "url" => "sdadsa/dasds",
+            "type" => "button"
+        ]
+    ]
+) ?>
+<?php echo $this->Bootstrap->options(
+    [
+        [
+            "title" => "postLink1", 
+            "url" => "sdadsa/dasds",
+            "type" => "postLink",
+            "confirmMessage" => "dsada"
+        ]
+    ]
+) ?>
+<?php echo $this->Bootstrap->options([[
+    "title" => "modal1", 
+    "type" => "modal",
+    "data-target" => "#id_de_algo",
+    "metadata" => [
+        "data-id" => "dasda",
+        "data-mono" => "tu"
+    ]
+]]) ?>
+
+<?php 
+    echo $this->Bootstrap->options([
+        [
+            "title" => "boton1", 
+            "url" => "sdadsa/dasds",
+            "type" => "button"
+        ],
+        [
+            "title" => "postLink1", 
+            "url" => "sdadsa/dasds",
+            "type" => "postLink",
+            "confirmMessage" => "dsada"
+        ], 
+        [
+            "title" => "modal1", 
+            "type" => "modal",
+            "data-target" => "#id_de_algo",
+            "metadata" => [
+                "data-id" => "dasda",
+                "data-mono" => "tu"
+            ]
+        ],
+        [
+            "type" => "divider"
+        ],
+        [
+            "title" => "modal1", 
+            "type" => "modal",
+            "data-target" => "#id_de_algo",
+            "metadata" => [
+                "data-id" => "dasda",
+                "data-mono" => "tu"
+            ]
+        ]
+    ]);
+?>
+
+ */
