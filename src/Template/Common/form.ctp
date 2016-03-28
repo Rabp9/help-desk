@@ -1,4 +1,4 @@
-<!-- src/Template/Common/list.ctp -->
+<!-- src/Template/Common/form.ctp -->
 <?php 
 $this->extend('/Common/wo_padding');
 ?>

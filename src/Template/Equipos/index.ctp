@@ -5,6 +5,12 @@ $this->assign("title", "Lista de Equipos de Cómputo");
 $this->assign("module-name", "Gestión");
 $this->assign("descripcion", "En la siguiente tabla se muestra la lista de Equipos de Cómputo");
 ?>
+<?= $this->Html->link("Nuevo Equipo", [
+    "controller" => "equipos", "action" => "add"
+    ], [
+        "class" => "btn btn-primary"
+    ]
+) ?>
 <table class="table table-bordered table-striped">
     <thead>
         <tr>

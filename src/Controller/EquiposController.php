@@ -14,15 +14,7 @@ class EquiposController extends AppController
         $this->set('_serialize', ['equipos']);
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Equipo id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
+    public function view($id = null) {
         $equipo = $this->Equipos->get($id, [
             'contain' => []
         ]);
@@ -31,21 +23,18 @@ class EquiposController extends AppController
         $this->set('_serialize', ['equipo']);
     }
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
+    public function add() {
+        $this->viewBuilder()->layout("main");
+        
         $equipo = $this->Equipos->newEntity();
         if ($this->request->is('post')) {
             $equipo = $this->Equipos->patchEntity($equipo, $this->request->data);
             if ($this->Equipos->save($equipo)) {
-                $this->Flash->success(__('The equipo has been saved.'));
+                $this->Flash->success(__('El equipo fue registrado satisfactoriamente.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error(__('The equipo could not be saved. Please, try again.'));
+                debug($equipo);
+                $this->Flash->error(__('El equipo no fue registrado, Vuelve a intentarlo.'));
             }
         }
         $this->set(compact('equipo'));

@@ -30,5 +30,8 @@ class AppView extends View
      */
     public function initialize() {
         $this->loadHelper('Bootstrap');
+        $this->loadHelper('Form', [
+            'templates' => 'app_form',
+        ]);
     }
 }
