@@ -15,9 +15,9 @@ class EquiposController extends AppController
     }
 
     public function view($id = null) {
-        $equipo = $this->Equipos->get($id, [
-            'contain' => []
-        ]);
+        $this->viewBuilder()->layout("main");
+        
+        $equipo = $this->Equipos->get($id);
 
         $this->set('equipo', $equipo);
         $this->set('_serialize', ['equipo']);

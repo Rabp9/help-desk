@@ -1,34 +1,25 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Equipo'), ['action' => 'edit', $equipo->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Equipo'), ['action' => 'delete', $equipo->id], ['confirm' => __('Are you sure you want to delete # {0}?', $equipo->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Equipos'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Equipo'), ['action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="equipos view large-9 medium-8 columns content">
-    <h3><?= h($equipo->id) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th><?= __('Codigo Patrimonial') ?></th>
-            <td><?= h($equipo->codigo_patrimonial) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Modelo') ?></th>
-            <td><?= h($equipo->modelo) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Marca') ?></th>
-            <td><?= h($equipo->marca) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Estado') ?></th>
-            <td><?= h($equipo->estado) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Id') ?></th>
-            <td><?= $this->Number->format($equipo->id) ?></td>
-        </tr>
-    </table>
-</div>
+<!-- src/Template/Equipos/add.ctp -->
+<?php
+$this->extend('/Common/list');
+$this->assign("title", "Ver Equipo de Cómputo");
+$this->assign("module-name", "Gestión");
+$this->assign("descripcion", "Se muestra la Información del Equipo de Cómputo");
+?>
+<dl class="dl-horizontal">
+    <dt>Código</dt>
+    <dd><?= $equipo->id ?></dd>
+    
+    <dt>Código Patrimonial</dt>
+    <dd><?= $equipo->codigo_patrimonial ?></dd>
+    
+    <dt>Modelo</dt>
+    <dd><?= $equipo->modelo ?></dd>
+    
+    <dt>Marca</dt>
+    <dd><?= $equipo->marca ?></dd>
+</dl>
+<?= $this->Html->link("<span class='glyphicon glyphicon-backward'></span> Regresar a lista de Equipos", [
+    "controller" => "equipos"
+    ], [
+    "escape" => false
+])?>
