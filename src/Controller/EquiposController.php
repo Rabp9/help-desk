@@ -8,7 +8,9 @@ class EquiposController extends AppController
 
     public function index() {
         $this->viewBuilder()->layout("main");
-        $equipos = $this->paginate($this->Equipos);
+        $equipos = $this->paginate($this->Equipos->find("all")
+            ->where(["estado" => 1])
+        );
 
         $this->set(compact('equipos'));
         $this->set('_serialize', ['equipos']);
@@ -58,21 +60,14 @@ class EquiposController extends AppController
         $this->set('_serialize', ['equipo']);
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Equipo id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
         $equipo = $this->Equipos->get($id);
-        if ($this->Equipos->delete($equipo)) {
-            $this->Flash->success(__('The equipo has been deleted.'));
+        $equipo->estado = 2;
+        if ($this->Equipos->save($equipo)) {
+            $this->Flash->success(__('El equipo fue desactivado correctamente.'));
         } else {
-            $this->Flash->error(__('The equipo could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El equipo no pudo ser desactivado. Por favor, inténtalo otra vez.'));
         }
         return $this->redirect(['action' => 'index']);
     }

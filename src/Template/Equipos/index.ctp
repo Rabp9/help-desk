@@ -43,6 +43,14 @@ $this->assign("descripcion", "En la siguiente tabla se muestra la lista de Equip
                             "action" => "edit", $equipo->id
                         ],
                         "type" => "link"
+                    ], [
+                        "title" => "Desactivar",
+                        "url" => [
+                            "controller" => "Equipos",
+                            "action" => "delete", $equipo->id
+                        ],
+                        "type" => "postLink",
+                        "confirmMessage" => "¿Está seguro de desactivar este Equipo?"
                     ]])
                 ], [
                     "class" => ""
